@@ -1,0 +1,11 @@
+# Pythonキャッシュ
+__pycache__/
+*.pyc
+*.pyo
+
+# DB
+*.db
+
+# 仮想環境
+venv/
+.env
