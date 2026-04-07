@@ -1,6 +1,8 @@
+from typing import Optional
 from sqlalchemy import create_engine, Column, Integer, String, Text, Date, Boolean
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+from datetime import date
 
 # データベースの接続URLを設定
 DATABASE_URL = "sqlite:///./app.db"
@@ -17,8 +19,8 @@ Base = declarative_base()
 class Task(Base):
     __tablename__ = "tasks"
 
-    id = Column(Integer, primary_key=True)
-    title = Column(String(255), nullable=False)
-    description = Column(Text, nullable=True)
-    deadline = Column(Date, nullable=True)
-    completed = Column(Boolean, default=False)
+    id: int = Column(Integer, primary_key=True) # type: ignore
+    title: str = Column(String(255), nullable=False) # type: ignore
+    description: Optional[str] = Column(Text, nullable=True) # type: ignore
+    deadline: Optional[date] = Column(Date, nullable=True) # type: ignore
+    completed: bool = Column(Boolean, default=False) # type: ignore

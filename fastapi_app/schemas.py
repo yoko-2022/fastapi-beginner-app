@@ -11,7 +11,7 @@ class TaskBase(BaseModel):
     # 締切日はYYYY-MM-DD形式・省略するとNull
     deadline: Optional[date] = None
     # 完了フラグはデフォルト値がfalse
-    complete: bool = False
+    completed: bool = False
 
 # 新規作成時に使うバリデーション（TaskBaseを継承）
 class TaskCreate(TaskBase):
